@@ -31,6 +31,74 @@ The current system is built from four main components:
 
 ### 2.2 System Flow Diagram
 
+```mermaid
+flowchart TD
+    %% External Input
+    User[👤 User / CLI] 
+    
+    %% Core System
+    subgraph MainSystem [OSINT Investigation System]
+        direction TB
+        Main["main.py"] 
+        Detection["Subject Type Detection"]
+        
+        subgraph DomainFlow [Domain-like Subject Flow]
+            direction TB
+            DNS[DNS Lookup]
+            WHOIS[WHOIS Lookup]
+            IP[IP Resolution]
+            WebD[Web Search]
+            GNewsD[Google News Search]
+            NDataD[NewsData.io Search]
+        end
+        
+        subgraph PersonFlow [Person / Company Subject Flow]
+            direction TB
+            WebP[Web Search]
+            SecNews[Security / News Search]
+            GNewsP[Google News Search]
+            NDataP[NewsData.io Search]
+        end
+        
+        Evidence[📦 Evidence Collector]
+        
+        subgraph LLM ["LLM Analysis Layer"]
+            direction TB
+            NotesGen[Claude API / Ollama → Investigation Notes]
+            ReportGen[Claude API / Ollama → Final Report]
+        end
+        
+        Output[📁 reports/ Folder]
+    end
+
+    %% Connections
+    User -->|subject| Main
+    Main --> Detection
+    
+    Detection -->|Domain-like| DomainFlow
+    Detection -->|Person / Company| PersonFlow
+    
+    DomainFlow --> Evidence
+    PersonFlow --> Evidence
+    
+    Evidence --> NotesGen
+    NotesGen --> ReportGen
+    ReportGen --> Output
+
+    %% Styling
+    classDef input fill:#4ade80,stroke:#166534,color:black
+    classDef core fill:#60a5fa,stroke:#1e40af,color:white
+    classDef flow fill:#f472b6,stroke:#831843,color:black
+    classDef llm fill:#a78bfa,stroke:#4c1d95,color:white
+    classDef output fill:#fbbf24,stroke:#92400e,color:black
+
+    class User input
+    class Main,Detection core
+    class DomainFlow,PersonFlow flow
+    class NotesGen,ReportGen llm
+    class Output output
+```
+
 
 ## 3. Component Description
 ### 3.1 main.py
@@ -335,3 +403,30 @@ Recommended controls:
 * Better API and secrets management.
 * User & Network Access controls.
 
+## 8. Repository and Pull Request Workflow
+The repository uses two branches:
+
+- `master` - default branch
+- `main` - development branch
+
+The `master` branch is configured as the default branch and represents the stable version of the project. Development work is performed on `main`, and changes should be merged into `master` using pull requests.
+
+This workflow allows code changes, documentation updates, and future features to be reviewed before being added to the default branch.
+
+### Pull Request Flow
+
+```text
+Developer
+   |
+   v
+main branch
+   |
+   v
+Pull Request
+   |
+   v
+Review / Validation
+   |
+   v
+master branch
+```
