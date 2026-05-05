@@ -29,6 +29,7 @@ Important rules:
 - Use only the provided evidence.
 - Be concise and investigation-focused.
 - Prefer structured output.
+- If a system show Error, add the error information to the report
 
 Notes
 - Safe representation:
@@ -91,4 +92,7 @@ Practical follow-up actions.
 
 ## Final Verdict
 Clean, Suspicious, Malicious, or Inconclusive.
+
+## Errors:
+- System/Tool: Error information
 """
