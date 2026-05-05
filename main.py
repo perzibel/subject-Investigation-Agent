@@ -65,15 +65,24 @@ def call_llm(system_prompt, user_prompt):
     raise ValueError(f"Unsupported LLM_PROVIDER: {provider}")
 
 
+def make_safe_filename(text):
+    safe_text = ""
+
+    for character in text:
+        if character.isalnum() or character == "-" or character == "_":
+            safe_text += character
+        else:
+            safe_text += "_"
+
+    return safe_text
+
+
 def save_report(subject, report):
     reports_dir = Path("reports")
     reports_dir.mkdir(exist_ok=True)
     provider = os.getenv("LLM_PROVIDER", "claude").lower()
 
-    safe_subject = "".join(
-        c if c.isalnum() or c in ("-", "_") else "_"
-        for c in subject
-    )
+    safe_subject = make_safe_filename(subject)
 
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
     report_path = reports_dir / f"{provider}_{safe_subject}_{timestamp}.md"

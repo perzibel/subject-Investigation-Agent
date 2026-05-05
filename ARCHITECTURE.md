@@ -288,10 +288,12 @@ Future tools could include:
 * Certificate transparency logs
 * Passive DNS
 * IP reputation services
+* Hash investigation.
 * Blockchain wallet intelligence
 * GitHub search
 * Social media or public profile search
 * Internal SIEM or case-management data
+
 
 
 ### 7.3 Better Report Formats
