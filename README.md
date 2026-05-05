@@ -35,7 +35,22 @@ python main.py --subject example.com
 python main.py --subject "Fireblocks"
 python main.py --subject "Elon Musk"
 ```
+## Demo Video
 
+A short demo video is included to show the agent running locally from the command line.
+
+[Watch the demo video](assets/demo.mp4)
+
+The video demonstrates:
+
+- Running the investigation agent locally
+- Providing a subject with `--subject`
+- Collecting evidence from available tools
+- Generating a structured investigation report
+- Saving the report under the `reports/` directory
+
+
+---
 ## Current Capabilities
 
 The current agent supports:
@@ -46,7 +61,7 @@ The current agent supports:
 * IP resolution
 * WHOIS lookup
 * Brave Search web search
-* Google news search
+* Google News search
 * NewsData.io search
 * Claude API support
 * Ollama local model fallback
