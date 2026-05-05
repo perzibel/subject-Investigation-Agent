@@ -2,6 +2,4 @@
 .env
 __pycache__/
 *.pyc
-reports/*.md
-reports/*.json
 .idea/

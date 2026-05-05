@@ -68,6 +68,7 @@ def call_llm(system_prompt, user_prompt):
 def save_report(subject, report):
     reports_dir = Path("reports")
     reports_dir.mkdir(exist_ok=True)
+    provider = os.getenv("LLM_PROVIDER", "claude").lower()
 
     safe_subject = "".join(
         c if c.isalnum() or c in ("-", "_") else "_"
@@ -75,7 +76,7 @@ def save_report(subject, report):
     )
 
     timestamp = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    report_path = reports_dir / f"{safe_subject}_{timestamp}.md"
+    report_path = reports_dir / f"{provider}_{safe_subject}_{timestamp}.md"
 
     with report_path.open("w", encoding="utf-8") as f:
         f.write(report)
