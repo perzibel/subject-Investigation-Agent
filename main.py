@@ -150,7 +150,7 @@ Investigation notes:
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Fireblocks Investigation Agent - Claude powered local POC"
+        description="Subject Investigation Agent - Claude powered local POC"
     )
 
     parser.add_argument(
