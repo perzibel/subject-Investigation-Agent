@@ -1,8 +1,8 @@
-# Architecture Document - Fireblocks Investigation Agent
+# Architecture Document - subject Investigation Agent
 
 ## 1. Overview
 
-Fireblocks Investigation Agent is the work assignment AI investigation agent powered by the Claude API or Ollama.
+subject Investigation Agent is the subject AI investigation agent powered by the Claude API or Ollama.
 
 The goal of the system is to investigate a given subject, such as a person, company, domain, or other entity, and generate a structured investigation report. The agent autonomously collects available evidence from external tools, sends the collected evidence to an LLM for analysis, and produces a final Markdown report.
 
@@ -313,7 +313,7 @@ Recommended tests:
 Example test cases:
 
 * `python main.py --subject example.com`
-* `python main.py --subject Fireblocks`
+* `python main.py --subject subject`
 * `python main.py --subject Elon Musk`
 
 
