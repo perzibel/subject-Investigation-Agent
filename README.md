@@ -1,6 +1,4 @@
-# Fireblocks Investigation Agent
-
-Fireblocks Investigation Agent is a local proof-of-concept AI investigation agent created as part of a **Fireblocks home assignment**.
+# Subject Investigation Agent
 
 The goal of the project is to investigate a given subject, such as a person, company, domain, or other entity, collect relevant evidence, and generate a structured investigation report using an LLM.
 
@@ -32,7 +30,7 @@ The agent accepts a subject and performs a small autonomous investigation flow:
 
 ```
 python main.py --subject example.com
-python main.py --subject "Fireblocks"
+python main.py --subject "Subject"
 python main.py --subject "Elon Musk"
 ```
 ## Demo Video
@@ -68,7 +66,7 @@ The current agent supports:
 * Markdown report generation
 * Local report storage
 
-### Fireblocks-Investigation-Agent/
+### Subject-Investigation-Agent/
 ```
 ├── main.py
 ├── tools.py
@@ -107,8 +105,8 @@ The current agent supports:
 ## Installation
 ### 1. Clone the repository
 ```
-git clone https://github.com/perzibel/Fireblocks-Investigation-Agent.git
-cd Fireblocks-Investigation-Agent
+git clone https://github.com/perzibel/Subject-Investigation-Agent.git
+cd Subject-Investigation-Agent
 ```
 ### 2. Install dependencies
 ```
